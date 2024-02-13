@@ -25,16 +25,12 @@ pipeline {
                 }
             }
         }
-    }
-    stages {
         stage('Test') {
             steps {
                 echo "Testing app.."
             }
         }
-    }
 
-    stages {
         stage('Build') {
             steps {
                 echo "Building app.!!!!"
