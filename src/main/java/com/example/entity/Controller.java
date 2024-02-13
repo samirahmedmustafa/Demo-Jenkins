@@ -12,4 +12,9 @@ public class Controller {
 	public String getItems() {
 		return "Hello API!";
 	}
+	
+	@GetMapping("bye")
+	public String getGoodbye() {
+		return "Good bye API!";
+	}
 }
