@@ -6,10 +6,11 @@ pipeline {
         maven "MAVEN_HOME"
     }
 
-    stage('Build') {
+    stages {
+        stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/samirahmedmustafa/Demo-Jenkins/tree/main'
+                git 'https://github.com/samirahmedmustafa/Demo-Jenkins'
 
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
@@ -26,17 +27,21 @@ pipeline {
                     archiveArtifacts 'target/*.jar'
                 }
             }
+        }
     }
-
+    stages {
         stage('Test') {
             steps {
-                echo "Testing code!!"
+                echo "Testing app.."
             }
         }
-        
-        stage('Deploy') {
+    }
+
+    stages {
+        stage('Build') {
             steps {
-                echo "Deploying code!!"
+                echo "Building app.!!!!"
             }
         }
+    }
 }
