@@ -15,6 +15,6 @@ public class Controller {
 	
 	@GetMapping("bye")
 	public String getGoodbye() {
-		return "Good bye aaaassada API!";
+		return "Good bye API!";
 	}
 }
