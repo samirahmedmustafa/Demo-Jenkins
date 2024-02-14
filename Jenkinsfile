@@ -34,8 +34,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    //sh "docker build -t samir82show/demo-jenkins ."   
-                    sh "docker version"   
+                    sh "docker build -t samir82show/demo-jenkins ."   
+                    //sh "docker version"   
                 }
             }
         }
