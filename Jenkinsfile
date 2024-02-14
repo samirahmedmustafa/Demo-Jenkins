@@ -6,7 +6,7 @@ pipeline {
     }
     
     stages {
-        stage('Build') {
+        stage('Build Maven') {
             steps {
                 //git 'https://github.com/samirahmedmustafa/Demo-Jenkins'
 
@@ -26,6 +26,13 @@ pipeline {
                     //archiveArtifacts 'target/*.jar'
               //  }
            // }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh "docker build -t samir82show/demo-jenkins ."   
+                }
+            }
         }
         stage('Test') {
             steps {
