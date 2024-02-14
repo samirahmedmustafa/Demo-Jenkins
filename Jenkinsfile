@@ -2,7 +2,7 @@ pipeline {
     agent any
 
 	environment {
-		DOCKERHUB_CREDENTIALS = credentials('8a8418cd-d831-434d-96a9-827bfbbed073')
+		DOCKERHUB_CREDENTIALS = credentials('jenkinsdockerhub')
 	}
 	
     tools {
