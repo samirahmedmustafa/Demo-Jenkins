@@ -9,11 +9,11 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/samirahmedmustafa/Demo-Jenkins'
-
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/samirahmedmustafa/Demo-Jenkins']])
+                //sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
                 // To run Maven on a Windows agent, use
-                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
 
             post {
