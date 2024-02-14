@@ -4,11 +4,15 @@ pipeline {
     tools {
         maven "3.8.1"
     }
+    
+    environment {
+        PATH = "C:\\WINDOWS\\SYSTEM32"
+    }
 
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/samirahmedmustafa/Demo-Jenkins'
+                //git 'https://github.com/samirahmedmustafa/Demo-Jenkins'
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/samirahmedmustafa/Demo-Jenkins']])
                 //sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
