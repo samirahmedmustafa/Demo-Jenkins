@@ -63,13 +63,12 @@ pipeline {
             steps {
                 echo "Deploy app.!!!!"
             }
-        }
-        
-       	post {
-       		always {
-       			sh 'docker logout'
-       		}
-        }
-		
+        }        
     }
+    
+    post {
+       	always {
+       		sh 'docker logout'
+       	}
+    }   		
 }
