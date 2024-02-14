@@ -47,7 +47,7 @@ pipeline {
         }
         stage("Push the Image"){
         	steps {	
-        		sh "docker push samir82show/demo-jenkins:$BUILD_NUMBER"
+        		sh "docker push samir82show/demo-jenkins:latest"
         	}
         }
         
