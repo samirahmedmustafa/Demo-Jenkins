@@ -10,7 +10,7 @@ pipeline {
     }
     
     stages {
-        stage('Build') {
+        stage('Build Maven') {
             steps {
                 //git 'https://github.com/samirahmedmustafa/Demo-Jenkins'
 
@@ -31,7 +31,6 @@ pipeline {
               //  }
            // }
         }
-         
         stage('Build Docker Image') {
             steps {
                 script {
@@ -40,7 +39,6 @@ pipeline {
                 }
             }
         }
-        
         stage('Test') {
             steps {
                 echo "Testing app.."
