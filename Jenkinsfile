@@ -39,6 +39,19 @@ pipeline {
                 }
             }
         }
+        
+        stage("Login to dockerhub"){
+        
+        	sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u DOCKERHUB_CREDENTIALS_USR --password-stdin"
+        
+        }
+        
+        stage("Push the Image"){
+        
+        	sh "docker push samir82show/demo-jenkins:$BUILD_NUMBER"
+        
+        }
+        
         stage('Test') {
             steps {
                 echo "Testing app.."
