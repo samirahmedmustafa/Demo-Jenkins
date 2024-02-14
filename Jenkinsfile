@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+	environment {
+		DOCKERHUB_CREDENTIALS = credentials('8a8418cd-d831-434d-96a9-827bfbbed073')
+	}
+	
     tools {
         maven "MVN"
     }
@@ -27,6 +31,16 @@ pipeline {
               //  }
            // }
         }
+         
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    //sh "docker build -t samir82show/demo-jenkins ."   
+                    sh "docker version"   
+                }
+            }
+        }
+        
         stage('Test') {
             steps {
                 echo "Testing app.."
